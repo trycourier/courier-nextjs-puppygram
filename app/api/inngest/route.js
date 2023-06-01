@@ -7,9 +7,10 @@ const courier = CourierClient()
 
 export const sendNotification = inngest.createFunction(
     { name: "Puppygram Send Notification" },
-    { event: "puppygram.send_notification" },
+    //{ event: "puppygram.send_notification" },
+    { cron: "* * * * *" },
     async ({ step }) => {
-        await step.run("Send Notification", async () => {
+        //await step.run("Send Notification", async () => {
             // get random dog photo
             const randomIndex = Math.floor(Math.random() * doggos.length)
             const image = doggos[randomIndex]
@@ -34,13 +35,14 @@ export const sendNotification = inngest.createFunction(
                     }
                 }
             })
-        })
+        //})
+        /*
         // sleep for 1 minute
         await step.sleep("1m")
         // trigger this event for the next photo, unless we need to start from the beginning
         await step.sendEvent({
             name: "puppygram.send_notification",
-        })
+        })*/
     }
 )
 
