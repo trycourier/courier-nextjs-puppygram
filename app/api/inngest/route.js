@@ -7,12 +7,14 @@ const courier = CourierClient()
 
 export const sendNotification = inngest.createFunction(
     { name: "Puppygram Send Notification" },
-    //{ event: "puppygram.send_notification" },
     { cron: "* * * * *" },
     async () => {       
         // get random dog photo
         const randomIndex = Math.floor(Math.random() * doggos.length)
         const image = doggos[randomIndex]
+        // EASTER EGG! 🥚
+        // Thanks for checking out the source code. Otto is my Australian Labradoodle, and he's a very good boy.
+        const imageUrl = (image === "otto" ? 'https://courier-nextjs-puppygram.vercel.app/otto.jpg' : `https://random.dog/${image}`)
         // send a notification with the URL to the random image
         await courier.send({
             message: {
@@ -21,10 +23,18 @@ export const sendNotification = inngest.createFunction(
                 },
                 content: {
                     title: "New pup!",
-                    body: "A description of the pup, if we had one"
+                    body: "Click to view",
+                    version: "2020-01-01",
+                    elements: [
+                        {
+                            type: "action",
+                            content: "Click to view",
+                            href: imageUrl
+                        }
+                    ]
                 },
                 data: {
-                    image_url: `https://random.dog/${image}`
+                    image_url: imageUrl
                 },
                 routing: {
                     method: "single",
@@ -37,7 +47,6 @@ export const sendNotification = inngest.createFunction(
     }
 )
 
-// Create an API that serves zero functions
 export const { GET, POST, PUT } = serve(inngest, [
     sendNotification
 ])

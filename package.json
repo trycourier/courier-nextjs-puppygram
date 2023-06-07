@@ -10,6 +10,9 @@
   },
   "dependencies": {
     "@trycourier/courier": "^4.2.0",
+    "@trycourier/react-inbox": "^3.6.4",
+    "@trycourier/react-provider": "^3.6.4",
+    "@trycourier/react-toast": "^3.6.4",
     "autoprefixer": "10.4.14",
     "encoding": "^0.1.13",
     "eslint": "8.41.0",
