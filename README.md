@@ -1,3 +1,6 @@
+> [!NOTE]
+> **Archived sample.** This app uses the v7-era Courier React packages (`@trycourier/react-inbox`, `@trycourier/react-provider`), which are no longer recommended for new projects. To add a notification inbox to a new React app, follow [Add a notification inbox to a React app](https://www.courier.com/docs/guides/add-an-inbox-to-react).
+
 
 ![Puppygram Hero](https://www.courier.com/_next/image/?url=https%3A%2F%2Fimages.ctfassets.net%2Fz7iqk1q8njt4%2F24KKl1zpMei98MkcreI103%2F2b1d47900004dca699e4e4e86d050656%2Fpuppygram-header-2.jpg&w=1920&q=75)
 
